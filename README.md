@@ -1,6 +1,6 @@
 #Hospital Patient Admissions & Outcomes Analysis
 #Project Overview
-
+Tableau dashboardlink;https://public.tableau.com/app/profile/muzammil.ali3402/viz/HospitalPatientAdmissionsOutcomesAnalysis/Dashboard1?publish=yes
 This project analyzes hospital patient admission data to uncover trends related to admissions, length of stay, diagnoses, and patient demographics. The goal is to demonstrate a realistic end-to-end healthcare data analytics workflow using SQL, Python, and Tableau, focusing on data cleaning, transformation, and insight generation rather than working with perfectly clean tutorial datasets.
 
 The project reflects real-world challenges commonly faced by data analysts in healthcare environments, including messy CSV files, schema mismatches, and inconsistent categorical values.
