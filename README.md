@@ -7,6 +7,10 @@ This project analyzes hospital patient admission data to understand how patients
 Additionally, the project evaluates admission type ratios, identifies departments with high patient volume, and highlights diseases showing increasing patient admissions. These insights can support hospital administrators in resource allocation, capacity planning, and identifying areas requiring operational or clinical attention.
 The project reflects real-world challenges commonly faced by data analysts in healthcare environments, including messy CSV files, schema mismatches, and inconsistent categorical values.
 
+Data Grain
+
+Each row in this dataset represents a single hospital admission, identified by an Admission ID. Patients may have multiple admissions, meaning the same patient can appear more than once in the dataset.
+
 Business Problem
 
 Hospitals need to better understand patient admission patterns and operational efficiency in order to:
