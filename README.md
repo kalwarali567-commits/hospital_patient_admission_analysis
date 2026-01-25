@@ -1,99 +1,121 @@
-#Hospital Patient Admissions & Outcomes Analysis
-#Project Overview
-Tableau dashboardlink;https://public.tableau.com/app/profile/muzammil.ali3402/viz/HospitalPatientAdmissionsOutcomesAnalysis/Dashboard1?publish=yes
+#Hospital Patient Admission Analysis (SQL)
+##Project Overview
 
-This project analyzes hospital patient admission data to understand how patients are admitted across different admission types and age groups. The analysis examines which age groups are most affected by diseases, how length of stay (LOS) varies by admission type, disease, and department, and which hospital departments are most and least utilized.
+This project analyzes hospital patient admission data to understand admission patterns, length of stay (LOS), disease burden, and patient demographics. The goal is to identify operational trends that can support hospital resource planning, capacity management, and patient flow optimization.
 
-Additionally, the project evaluates admission type ratios, identifies departments with high patient volume, and highlights diseases showing increasing patient admissions. These insights can support hospital administrators in resource allocation, capacity planning, and identifying areas requiring operational or clinical attention.
-The project reflects real-world challenges commonly faced by data analysts in healthcare environments, including messy CSV files, schema mismatches, and inconsistent categorical values.
-
-Data Grain
-
-Each row in this dataset represents a single hospital admission, identified by an Admission ID. Patients may have multiple admissions, meaning the same patient can appear more than once in the dataset.
+The dataset represents real-world healthcare data challenges, including inconsistent categorical values, schema mismatches, and imperfect CSV inputs. The project emphasizes data modeling, staging workflows, and analytical SQL rather than visualization-heavy reporting.
 
 Business Problem
 
-Hospitals need to better understand patient admission patterns and operational efficiency in order to:
+Hospitals require reliable insights from admission data to improve operational efficiency and patient outcomes. Key questions addressed include:
 
-Monitor admission trends over time
+How are patients admitted across different admission types?
 
-Evaluate average length of stay
+Which age groups and diagnoses contribute most to hospital utilization?
 
-Identify frequently occurring diagnoses
+How does length of stay vary by admission type and diagnosis?
 
-Improve patient flow and resource planning
+Are there identifiable patterns in readmissions and high-utilization cases?
 
-This project answers: How can hospital admission data be analyzed to improve operational efficiency and support better patient outcomes?
+This project demonstrates how structured SQL analysis can be used to answer these questions.
+
+Data Grain
+
+Each row in the raw dataset represents one hospital admission (admission-level grain).
+
+A single patient may have multiple admissions.
+
+Admissions are uniquely identified after normalization using an admission_id.
+
+Understanding and maintaining correct data grain was a key design consideration in this project.
 
 Dataset
 
 Hospital patient admission dataset (CSV)
 
-Contains patient demographics, admission and discharge dates, diagnoses, admission type, and length of stay
+Includes:
+
+Patient demographics
+
+Admission and discharge dates
+
+Admission type
+
+Diagnoses, medications, and test results
 
 Data is intentionally imperfect to simulate real-world healthcare data conditions
 
 Tools & Technologies
 
-SQL (PostgreSQL) – Data modeling, staging tables, data insertion, and analytical queries
+SQL (PostgreSQL) – Data modeling, staging tables, normalization, and analytics
 
-Python (Pandas) – Post-SQL data cleaning, validation, and preprocessing
+Python (Pandas) – Post-SQL validation and data cleanup
 
-Tableau Public – Data visualization and dashboard creation
+Tableau Public – Dashboard creation for non-technical stakeholders
 
 GitHub – Version control and project documentation
 
 Database Design
 
-The database follows a simplified hospital schema:
+The database follows a normalized hospital schema:
 
-Patients – demographic information
+Patients – Patient-level demographic data
 
-Admissions – admission and discharge details
+Admissions – Admission-level operational data
 
-Diagnoses – diagnosis information linked to admissions
+Diagnoses – Diagnosis and treatment details linked to admissions
 
-Staging tables were used to load raw CSV data safely before inserting into final tables.
+A staging table was used to safely load and validate raw CSV data before insertion into final tables. Analytical queries and views were intentionally kept within a single SQL file for clarity and review simplicity.
 
-Problems Identified
+Data Quality Challenges
 
-Raw CSV data was difficult to load and required preprocessing
+Inconsistent categorical values (admission type, diagnosis names)
 
-Inconsistent naming in categorical columns
+Date format inconsistencies
 
-Date format inconsistencies across admission and discharge fields
+Schema mismatches during CSV loading
 
-Numeric validation issues in billing-related fields
+Logical issues such as invalid discharge dates
 
-Data insertion errors caused by incorrect staging table structure
-
-Challenges Faced
-
-Understanding the purpose and use of staging tables (new concept)
-
-Learning the correct data loading and insertion workflow
-
-Interpreting time-based trend queries
-
-CSV loading errors due to schema mismatch and formatting issues
-
-Adjusting to real-world data behavior instead of clean tutorial datasets
+Initial staging table design errors
 
 Actions Taken
 
-Standardized inconsistent categorical values
+Used staging tables to validate and clean raw data before insertion
 
-Used staging tables to clean and validate raw data before final insertion
+Standardized categorical values
 
-Resolved CSV loading and insertion issues through trial and error
+Corrected schema and data type mismatches
 
-Practiced SQL aggregation and trend-based queries
+Implemented logical data quality checks (e.g., LOS validation)
 
-Cleaned and validated exported SQL results using Python (Pandas)
+Normalized data into patient, admission, and diagnosis tables
 
-Prepared a clean analytical dataset for Tableau visualization
+Practiced aggregation, trend analysis, and window functions
+
+Validated extracted results using Python (Pandas)
 
 Analysis Performed
+
+Admission volume by admission type
+
+Monthly admission trends
+
+Average length of stay (LOS) by admission type
+
+Disease burden analysis
+
+Admissions by age group and gender
+
+Readmission proxy analysis
+
+Identification of high LOS outliers
+
+Analysis focuses on operational efficiency and patient flow, not clinical decision-making.
+
+Tableau Dashboard
+Tableau dashboardlink;https://public.tableau.com/app/profile/muzammil.ali3402/viz/HospitalPatientAdmissionsOutcomesAnalysis/Dashboard1?publish=yes
+A single Tableau dashboard was created to visualize:
 
 Monthly admission trends
 
@@ -101,44 +123,22 @@ Top diagnoses by admission count
 
 Average length of stay
 
-Admissions by gender and admission type
+Filters for date range, gender, and admission type
 
-These analyses focus on operational efficiency and patient flow rather than clinical decision-making.
-
-Tableau Dashboard
-
-A single Tableau dashboard was created to visualize:
-
-Monthly admissions trend
-
-Top diagnoses
-
-Average length of stay
-
-Key filters (date, gender, admission type)
-
-The dashboard is designed to be simple, clean, and suitable for non-technical stakeholders.
+The dashboard is designed for clarity and usability by non-technical stakeholders.
 
 Key Learnings
 
-Real-world data is rarely clean and requires careful preprocessing
+Real-world healthcare data requires careful staging and validation
 
-Staging tables are critical for safe and structured data loading
+Correct data grain is critical for meaningful analysis
 
-SQL is effective for aggregation, but Python is valuable for post-extraction cleaning
+Staging tables are essential for safe data ingestion
 
-Understanding why issues occur is more important than memorizing syntax
+SQL is effective for aggregation; Python complements post-extraction cleanup
 
-End-to-end project execution builds stronger analytical confidence than isolated practice
+End-to-end projects build stronger analytical understanding than isolated queries
 
-Current Status
+How This Project Supports My Career Goals
 
-Core SQL queries are understood conceptually
-
-Practical understanding is improving with repetition
-
-Verbal explanation skills are developing with continued exposure and practice
-
-How This Project Helps Me
-
-With a background in healthcare, this project demonstrates domain understanding combined with technical analytics skills. It reflects real-world hospital data challenges and shows the ability to work through imperfect data using industry-relevant tools.
+With a background in healthcare, this project demonstrates the ability to combine domain knowledge with data analytics skills. It reflects real-world hospital data challenges and shows practical experience in data modeling, validation, and analysis using industry-relevant tools.
