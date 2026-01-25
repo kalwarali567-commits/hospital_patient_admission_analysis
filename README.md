@@ -1,8 +1,10 @@
 #Hospital Patient Admissions & Outcomes Analysis
 #Project Overview
 Tableau dashboardlink;https://public.tableau.com/app/profile/muzammil.ali3402/viz/HospitalPatientAdmissionsOutcomesAnalysis/Dashboard1?publish=yes
-This project analyzes hospital patient admission data to uncover trends related to admissions, length of stay, diagnoses, and patient demographics. The goal is to demonstrate a realistic end-to-end healthcare data analytics workflow using SQL, Python, and Tableau, focusing on data cleaning, transformation, and insight generation rather than working with perfectly clean tutorial datasets.
 
+This project analyzes hospital patient admission data to understand how patients are admitted across different admission types and age groups. The analysis examines which age groups are most affected by diseases, how length of stay (LOS) varies by admission type, disease, and department, and which hospital departments are most and least utilized.
+
+Additionally, the project evaluates admission type ratios, identifies departments with high patient volume, and highlights diseases showing increasing patient admissions. These insights can support hospital administrators in resource allocation, capacity planning, and identifying areas requiring operational or clinical attention.
 The project reflects real-world challenges commonly faced by data analysts in healthcare environments, including messy CSV files, schema mismatches, and inconsistent categorical values.
 
 Business Problem
